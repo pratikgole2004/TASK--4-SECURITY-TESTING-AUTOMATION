@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OWASP ZAP Security Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #c0392b; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f5f5f5; }
+        .severity-high { background-color: #f9d6d5; }
+        .severity-medium { background-color: #fcf3cf; }
+        .severity-low { background-color: #d5f5e3; }
+    </style>
+</head>
+<body>
+    <h1>OWASP ZAP Security Report</h1>
+    <p><strong>Target:</strong> http://testphp.vulnweb.com</p>
+    <p><strong>Scan Type:</strong> Automated Active Scan</p>
+    <p><strong>Date:</strong> July 19, 2025</p>
+
+    <h2>Summary of Findings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Vulnerability</th>
+                <th>Description</th>
+                <th>Severity</th>
+                <th>Remediation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="severity-high">
+                <td>1</td>
+                <td>Cross-Site Scripting (XSS)</td>
+                <td>Input not properly sanitized, allowing script injection.</td>
+                <td>High</td>
+                <td>Sanitize input and use output encoding. Apply CSP headers.</td>
+            </tr>
+            <tr class="severity-high">
+                <td>2</td>
+                <td>SQL Injection</td>
+                <td>Input can manipulate database queries.</td>
+                <td>Critical</td>
+                <td>Use prepared statements or ORM. Validate user inputs.</td>
+            </tr>
+            <tr class="severity-medium">
+                <td>3</td>
+                <td>Insecure Cookies</td>
+                <td>Cookies missing Secure, HttpOnly, or SameSite flags.</td>
+                <td>Medium</td>
+                <td>Set appropriate cookie flags for all sensitive cookies.</td>
+            </tr>
+            <tr class="severity-medium">
+                <td>4</td>
+                <td>Missing Security Headers</td>
+                <td>Important headers like CSP and X-Frame-Options are missing.</td>
+                <td>Medium</td>
+                <td>Add standard security headers to HTTP responses.</td>
+            </tr>
+            <tr class="severity-low">
+                <td>5</td>
+                <td>Information Disclosure</td>
+                <td>Server discloses version and debug details in responses.</td>
+                <td>Low</td>
+                <td>Remove version headers and use generic error messages.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
